@@ -27,6 +27,10 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
+  if(environment === 'gh-pages'){
+    ENV.baseURL = '/ember-cli-simditor'
+  }
+
   if (environment === 'test') {
     // Testem prefers this...
     ENV.baseURL = '/';
