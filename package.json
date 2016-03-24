@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-simditor",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Ember component wrapper for simditor.",
   "directories": {
     "doc": "doc",
@@ -16,7 +16,24 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": {
+    "name": "wecatch",
+    "url": "http://wecatch.me"
+  },
+  "contributors": [
+    {
+      "name": "zhyq0826",
+      "email": "zhyq0826@email.com",
+      "url": "https://github.com/zhyq0826",
+      "blog": "http://sanyuesha.com"
+    },
+    {
+      "name": "jerryshew",
+      "email": "jerryshew@email.com",
+      "url": "https://github.com/jerryshew",
+      "blog": "http://braavos.me"
+    }
+  ],
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.2.0",
@@ -40,7 +57,9 @@
     "loader.js": "^4.0.0"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "editor",
+    "simditor"
   ],
   "dependencies": {
     "ember-cli-htmlbars": "^1.0.1",
