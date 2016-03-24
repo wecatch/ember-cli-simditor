@@ -3,9 +3,13 @@
 var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
 module.exports = function(defaults) {
-  var app = new EmberAddon(defaults, {
-    // Add options here
-  });
+  var options = {};
+  if (process.env.EMBER_ENV === 'production') {
+      options.fingerprint = {
+        prepend: '/ember-cli-simditor/',
+      };
+  }
+  var app = new EmberAddon(defaults, options);
 
   /*
     This build file specifies the options for the dummy test app of this
