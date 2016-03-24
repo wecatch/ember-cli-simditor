@@ -1,17 +1,44 @@
 # Ember-cli-simditor
 
-This README outlines the details of collaborating on this Ember addon.
+[![Build Status](https://travis-ci.org/wecatch/ember-cli-simditor.svg?branch=master)](https://travis-ci.org/wecatch/ember-cli-simditor)
+
+Ember component wrapper for [simditor](https://github.com/mycolorway/simditor).
+
+
+# Getting Started
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+In your ember-cli project, install this addon from npm 
 
-## Running
+```
+ember install ember-cli-simditor --save-dev
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+```
+
+or install the latest version from github
+
+```
+ember install git+https://github.com/wecatch/ember-cli-simditor --save-dev
+
+```
+
+
+## Usage
+
+```
+    {{simditor-editor update=(action (mut value)) editor=(mut editor) }}
+
+```
+
+## API
+
+- [Options](http://simditor.tower.im/docs/doc-config.html)
+- [Methods](http://simditor.tower.im/docs/doc-method.html)
+- [Events](http://simditor.tower.im/docs/doc-event.html)
+> In this addon , `on` prefix must be used for all events name. For sample, valuechanged => OnValuechanged
+
+### 
 
 ## Running Tests
 
@@ -19,8 +46,3 @@ This README outlines the details of collaborating on this Ember addon.
 * `ember test`
 * `ember test --server`
 
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).

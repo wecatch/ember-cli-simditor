@@ -1,3 +1,16 @@
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+<div>
+    <h1>editor method</h1>
+    <button {{action "setValue"}} >setValue</button>
+    <button {{action "getValue"}} >getValue</button>
+    <button {{action "sync"}}>sync</button>
+    <button {{action "focus"}} >focus</button>
+    <button {{action "blur"}}>blur</button>
+    <button {{action "hidePopover"}} >hidePopover</button>
+</div>
+<br>
+<h1>editor</h1>
+{{simditor-editor value='<h1>hello simditor</h1>' update=(action (mut value)) editor=(mut editor)}}
+<div>
+    <h1>html content</h1>
+    {{value}}
+</div>
