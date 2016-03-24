@@ -13,22 +13,19 @@ In your ember-cli project, install this addon from npm
 
 ```
 ember install ember-cli-simditor --save-dev
-
 ```
 
 or install the latest version from github
 
 ```
 ember install git+https://github.com/wecatch/ember-cli-simditor --save-dev
-
 ```
 
 
 ## Usage
 
 ```
-    {{simditor-editor update=(action (mut value)) editor=(mut editor) }}
-
+  {{simditor-editor update=(action (mut value)) editor=(mut editor) }}
 ```
 
 ## API
@@ -36,7 +33,10 @@ ember install git+https://github.com/wecatch/ember-cli-simditor --save-dev
 - [Options](http://simditor.tower.im/docs/doc-config.html)
 - [Methods](http://simditor.tower.im/docs/doc-method.html)
 - [Events](http://simditor.tower.im/docs/doc-event.html)
-> In this addon , `on` prefix must be used for all events name. For sample, valuechanged => OnValuechanged
+
+
+In this addon , `on` prefix must be used for all events name. For sample, valuechanged => OnValuechanged
+
 
 ### 
 
