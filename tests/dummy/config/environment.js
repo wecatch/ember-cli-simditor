@@ -27,7 +27,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
-  if(environment === 'gh-pages'){
+  if(environment === 'production'){
     ENV.baseURL = '/ember-cli-simditor'
   }
 
