@@ -1,5 +1,23 @@
+<div class="desc">
+    <h1>ember-cli-simditor
+        <a href="https://travis-ci.org/wecatch/ember-cli-simditor">
+            <img src="https://travis-ci.org/wecatch/ember-cli-simditor.svg?branch=master" alt="">
+        </a>
+    </h1>
+    <p>
+        Ember component wrapper for simditor editor.
+    </p>
+    <a href="https://github.com/wecatch/ember-cli-simditor">Github</a>
+    <a href="http://wecatch.me">Wecatch</a>
+</div>
+<div class="code">
+    <h1>How to use</h1>
+    <code>
+        <pre>\{{simditor-editor value='&lt;h1&gt;hello simditor&lt;/h1&gt;' update=(action (mut value)) editor=(mut editor)}}</pre>
+    </code>
+</div>
 <div>
-    <h1>editor method</h1>
+    <h1>Editor methods</h1>
     <button {{action "setValue"}} >setValue</button>
     <button {{action "getValue"}} >getValue</button>
     <button {{action "sync"}}>sync</button>
@@ -8,9 +26,9 @@
     <button {{action "hidePopover"}} >hidePopover</button>
 </div>
 <br>
-<h1>editor</h1>
+<h1>Editor</h1>
 {{simditor-editor value='<h1>hello simditor</h1>' update=(action (mut value)) editor=(mut editor)}}
 <div>
-    <h1>html content</h1>
+    <h1>Html content</h1>
     {{value}}
 </div>
