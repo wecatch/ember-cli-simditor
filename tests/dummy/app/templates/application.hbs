@@ -32,3 +32,15 @@
     <h1>Html content</h1>
     {{value}}
 </div>
+
+<h1>
+    locale
+</h1>
+<div class="code">
+    <p>locale only support <em>en-US</em>(English) and <em>zh-CN</em>(Chinese)</p>
+    <code>
+        <pre>\{{simditor-editor value='&lt;h1&gt;hello simditor&lt;/h1&gt;' locale='zh-CN' update=(action (mut value)) editor=(mut editor)}}</pre>
+    </code>
+</div>
+{{simditor-editor value='<h1>哈喽 世界</h1>' locale='zh-CN' update=(action (mut value)) editor=(mut editor)}}
+

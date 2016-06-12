@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-simditor",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Ember component wrapper for simditor.",
   "directories": {
     "doc": "doc",

@@ -1,3 +1,4 @@
+/* global Simditor */
 import Ember from 'ember';
 import layout from '../templates/components/simditor-editor';
 
@@ -13,8 +14,10 @@ export default Ember.Component.extend({
     cleanPaste: false,
     defaultImage: 'assets/passed.png',
     placeholder: 'Type something here',
+    locale: 'en-US',
     didInsertElement(){
         let self = this;
+        Simditor.locale = this.get('locale');
         let options = {
             textarea: self.$('textarea'),
             upload: self.upload,
