@@ -12,13 +12,13 @@ Ember component wrapper for [simditor](https://github.com/mycolorway/simditor).
 In your ember-cli project, install this addon from npm 
 
 ```
-ember install ember-cli-simditor --save-dev
+ember install ember-cli-simditor
 ```
 
 or install the latest version from github
 
 ```
-ember install git+https://github.com/wecatch/ember-cli-simditor --save-dev
+ember install git+https://github.com/wecatch/ember-cli-simditor
 ```
 
 
