@@ -19,6 +19,9 @@ export default Ember.Controller.extend({
         },
         hidePopover(){
             this.get('editor').hidePopover();
+        },
+        valuechanged(e, editor){
+            console.log('valuechanged event: '+ editor.getValue());
         }
     }
 });

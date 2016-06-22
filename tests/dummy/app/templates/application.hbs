@@ -13,7 +13,7 @@
 <div class="code">
     <h1>How to use</h1>
     <code>
-        <pre>\{{simditor-editor value='&lt;h1&gt;hello simditor&lt;/h1&gt;' update=(action (mut value)) editor=(mut editor)}}</pre>
+        <pre>\{{simditor-editor value='&lt;h1&gt;hello simditor&lt;/h1&gt;' update=(action (mut value)) editor=(mut editor) onValuechanged=(action "valuechanged")}}</pre>
     </code>
 </div>
 <div>
@@ -27,14 +27,14 @@
 </div>
 <br>
 <h1>Editor</h1>
-{{simditor-editor value='<h1>hello simditor</h1>' update=(action (mut value)) editor=(mut editor)}}
+{{simditor-editor value='<h1>hello simditor</h1>' update=(action (mut value)) editor=(mut editor) onValuechanged=(action "valuechanged")}}
 <div>
     <h1>Html content</h1>
     {{value}}
 </div>
 
 <h1>
-    locale
+    Locale
 </h1>
 <div class="code">
     <p>locale only support <em>en-US</em>(English) and <em>zh-CN</em>(Chinese)</p>
