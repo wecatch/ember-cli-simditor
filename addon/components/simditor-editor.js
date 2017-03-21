@@ -15,6 +15,13 @@ export default Ember.Component.extend({
     defaultImage: 'assets/passed.png',
     placeholder: 'Type something here',
     locale: 'en-US',
+    valueDidChange: Ember.observer('value', function() {
+      let thisEditor = this.get('editor');
+      let editorValue = thisEditor.getValue();
+      if(this.value !== editorValue) {
+        thisEditor.setValue(this.value);
+      }
+    }),
     didInsertElement(){
         let self = this;
         Simditor.locale = this.get('locale');
