@@ -1,0 +1,7 @@
+<div>
+    {{textarea value=model.text}}
+</div>
+{{simditor-editor value=model.text update=(action (mut model.text))}}
+<div>
+    {{model.text}}
+</div>
