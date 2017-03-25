@@ -27,21 +27,23 @@ ember install git+https://github.com/wecatch/ember-cli-simditor
 ## Usage
 
 ```
-{{simditor-editor update=(action (mut value)) editor=(mut editor) onValuechanged=(action "valuechanged") }}
+{{simditor-editor value=model update=(action (mut model.content)) editor=(mut editor) onValuechanged=(action "valuechanged") }}
 ```
+
+Model object must have one property called content for component to render, visit [issue 6](https://github.com/wecatch/ember-cli-simditor/issues/6]) for why.
 
 ## Locale
 
 English by default
 
 ```
-{{simditor-editor update=(action (mut value)) editor=(mut editor) }}
+{{simditor-editor update=(action (mut model.content)) editor=(mut editor) }}
 ```
 
 Chinese
 
 ```
-{{simditor-editor update=(action (mut value)) editor=(mut editor) locale='zh-CN' }}
+{{simditor-editor update=(action (mut model.content)) editor=(mut editor) locale='zh-CN' }}
 ```
 
 
@@ -62,8 +64,6 @@ In this addon , `on` prefix must be used for all events name. For sample, valuec
 - blur => onBlur
 - destroy => onDestroy
 
-
-### 
 
 ## Running Tests
 

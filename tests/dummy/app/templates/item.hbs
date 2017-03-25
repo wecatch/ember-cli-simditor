@@ -1,7 +1,4 @@
-<div>
-    {{textarea value=model.text}}
-</div>
-{{simditor-editor value=model.text update=(action (mut model.text))}}
-<div>
-    {{model.text}}
-</div>
+{{#link-to "item" 2 }}2{{/link-to}}
+{{#link-to "item" 1 }}1{{/link-to}}
+{{simditor-editor value=(mut model) update=(action (mut model.content))}}
+{{model.content}}

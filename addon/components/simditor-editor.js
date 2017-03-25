@@ -2,6 +2,8 @@
 import Ember from 'ember';
 import layout from '../templates/components/simditor-editor';
 
+const {get} = Ember;
+
 export default Ember.Component.extend({
     layout,
     upload: false,
@@ -15,6 +17,14 @@ export default Ember.Component.extend({
     defaultImage: 'assets/passed.png',
     placeholder: 'Type something here',
     locale: 'en-US',
+    _editor: null,
+    didReceiveAttrs(){
+        if(this.get('_editor') && this.attrs.value.value){
+            if(this.get('_editor').getValue() != get(this.attrs.value.value, 'content')){
+                this.get('_editor').setValue(this.attrs.value.value.content);
+            }
+        }
+    },
     didInsertElement(){
         let self = this;
         Simditor.locale = this.get('locale');
@@ -34,9 +44,10 @@ export default Ember.Component.extend({
         }
 
         let editor = new Simditor(options);
-        if(typeof this.value === 'string'){
-            editor.setValue(this.value);
+        if(this.attrs.value){
+            editor.setValue(this.attrs.value.content);
         }
+        this.set('_editor', editor);
 
         editor.on('valuechanged', (e)=>{
             if(typeof this.attrs.onValuechanged == 'function'){

@@ -13,8 +13,11 @@
 <div class="code">
     <h1>How to use</h1>
     <code>
-        <pre>\{{simditor-editor value='&lt;h1&gt;hello simditor&lt;/h1&gt;' update=(action (mut value)) editor=(mut editor) onValuechanged=(action "valuechanged")}}</pre>
+        <pre>\{{simditor-editor value=model update=(action (mut model.content)) editor=(mut editor) onValuechanged=(action "valuechanged")}}</pre>
     </code>
+    <p>
+        <strong>Model object must have one property called content for component to render.</strong>
+    </p>
 </div>
 <div>
     <h1>Editor methods</h1>
@@ -27,10 +30,10 @@
 </div>
 <br>
 <h1>Editor</h1>
-{{simditor-editor value='<h1>hello simditor</h1>' update=(action (mut value)) editor=(mut editor) onValuechanged=(action "valuechanged")}}
+{{simditor-editor value=(get model 'one') update=(action (mut model.one.content)) editor=(mut editor) onValuechanged=(action "valuechanged")}}
 <div>
     <h1>Html content</h1>
-    {{value}}
+    {{model.one.content}}
 </div>
 
 <h1>
@@ -39,7 +42,7 @@
 <div class="code">
     <p>locale only support <em>en-US</em>(English) and <em>zh-CN</em>(Chinese)</p>
     <code>
-        <pre>\{{simditor-editor value='&lt;h1&gt;hello simditor&lt;/h1&gt;' locale='zh-CN' update=(action (mut value)) editor=(mut editor)}}</pre>
+        <pre>\{{simditor-editor value=model locale='zh-CN' update=(action (mut model.content)) editor=(mut editor)}}</pre>
     </code>
 </div>
-{{simditor-editor value='<h1>哈喽 世界</h1>' locale='zh-CN' update=(action (mut value)) editor=(mut editor)}}
+{{simditor-editor value=(get model 'two') locale='zh-CN' update=(action (mut model.two.content)) editor=(mut editor)}}
