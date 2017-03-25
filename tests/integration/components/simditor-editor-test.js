@@ -7,8 +7,9 @@ moduleForComponent('simditor-editor', 'Integration | Component | simditor editor
 
 test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });"
-  this.render(hbs`{{simditor-editor value='hello emberjs' editor=(mut editor) }}`);
+  // Handle any actions with this.on('myAction', function(val) { ... });
+  var model = {'content': 'hello emberjs'};
+  this.render(hbs`{{simditor-editor value=model editor=(mut editor) }}`);
   assert.notEqual(typeof this.get('editor'), 'undefined');
   assert.notEqual(this.get('editor'), null);
   assert.equal(this.$('.simditor-body').html().trim(), '<p>hello emberjs</p>');
