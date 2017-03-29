@@ -21,7 +21,7 @@ export default Ember.Component.extend({
     didReceiveAttrs(){
         if(this.get('_editor') && this.attrs.value.value){
             if(this.get('_editor').getValue() != get(this.attrs.value.value, 'content')){
-                this.get('_editor').setValue(this.attrs.value.value.content);
+                this.get('_editor').setValue(get(this.attrs.value.value, 'content'));
             }
         }
     },
