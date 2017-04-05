@@ -35,7 +35,7 @@ ember install git+https://github.com/wecatch/ember-cli-simditor
 {{simditor-editor value=model update=(action (mut model.content)) editor=(mut editor) onValuechanged=(action "valuechanged") }}
 ```
 
-You must wrap content in one object, that means model object must have one property called `content` for component to render, visit [issue 6](https://github.com/wecatch/ember-cli-simditor/issues/6]) for why.
+You must wrap content in one object, that means model object must have one property called `content` for component to render, visit [issue 6](https://github.com/wecatch/ember-cli-simditor/issues/6) for why.
 
 ## Locale
 
