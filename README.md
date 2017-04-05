@@ -10,7 +10,7 @@ Ember component wrapper for [simditor](https://github.com/mycolorway/simditor).
 
 ## 0.0.7
 
-Different from previous version, you must wrap content in object. See [issue 6](https://github.com/wecatch/ember-cli-simditor/issues/6]) for why.
+Different from previous version, you must wrap content in object. See [issue 6](https://github.com/wecatch/ember-cli-simditor/issues/6) for why.
 
 # Getting Started
 
