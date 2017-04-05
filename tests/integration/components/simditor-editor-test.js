@@ -15,3 +15,13 @@ test('it renders', function(assert) {
   assert.notEqual(this.get('editor'), null);
   assert.equal(this.$('.simditor-body').html().trim(), '<p>hello emberjs</p>');
 });
+
+test('it custome render', function(assert){
+
+  var model = {'html': 'hello emberjs'};
+  this.set('model', model);
+  this.render(hbs`{{simditor-editor value=model name='html' editor=(mut editor) }}`);
+  assert.notEqual(typeof this.get('editor'), 'undefined');
+  assert.notEqual(this.get('editor'), null);
+  assert.equal(this.$('.simditor-body').html().trim(), '<p>hello emberjs</p>');
+});

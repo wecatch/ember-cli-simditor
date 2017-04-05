@@ -37,6 +37,13 @@ ember install git+https://github.com/wecatch/ember-cli-simditor
 
 You must wrap content in one object, that means model object must have one property called `content` for component to render, visit [issue 6](https://github.com/wecatch/ember-cli-simditor/issues/6) for why.
 
+By default the content property name is `content`, you can custome the property name with `name` argument
+
+
+```
+{{simditor-editor value=model update=(action (mut model.html)) editor=(mut editor) onValuechanged=(action "valuechanged") name='html' }}
+```
+
 ## Locale
 
 English by default

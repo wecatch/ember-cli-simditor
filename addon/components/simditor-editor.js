@@ -18,10 +18,11 @@ export default Ember.Component.extend({
     placeholder: 'Type something here',
     locale: 'en-US',
     _editor: null,
+    name: 'content',
     didReceiveAttrs(){
         if(this.get('_editor') && this.attrs.value.value){
-            if(this.get('_editor').getValue() != get(this.attrs.value.value, 'content')){
-                this.get('_editor').setValue(get(this.attrs.value.value, 'content'));
+            if(this.get('_editor').getValue() != get(this.attrs.value.value, this.get('name'))){
+                this.get('_editor').setValue(get(this.attrs.value.value, this.get('name')));
             }
         }
     },
@@ -45,7 +46,7 @@ export default Ember.Component.extend({
 
         let editor = new Simditor(options);
         if(this.attrs.value){
-            editor.setValue(this.attrs.value.content);
+            editor.setValue(get(this.attrs.value, this.get('name')));
         }
         this.set('_editor', editor);
 

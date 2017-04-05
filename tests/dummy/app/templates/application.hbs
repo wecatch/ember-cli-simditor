@@ -46,3 +46,14 @@
     </code>
 </div>
 {{simditor-editor value=(get model 'two') locale='zh-CN' update=(action (mut model.two.content)) editor=(mut editor)}}
+
+<h1>
+    Custome content property name
+</h1>
+<div class="code">
+    <p>You can change model content propery name by passing name argument</p>
+    <code>
+        <pre>\{{simditor-editor value=model name='html'  update=(action (mut model.html)) editor=(mut editor)}}</pre>
+    </code>
+</div>
+{{simditor-editor value=(get model 'three') name='html' update=(action (mut model.three.html)) editor=(mut editor)}}
