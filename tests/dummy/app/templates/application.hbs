@@ -45,7 +45,7 @@
         <pre>\{{simditor-editor value=model locale='zh-CN' update=(action (mut model.content)) editor=(mut editor)}}</pre>
     </code>
 </div>
-{{simditor-editor value=(get model 'two') locale='zh-CN' update=(action (mut model.two.content)) editor=(mut editor)}}
+{{simditor-editor value=(get model 'two') locale='zh-CN' update=(action (mut model.two.content)) editor=(mut editor_two)}}
 
 <h1>
     Custome content property name
@@ -56,4 +56,4 @@
         <pre>\{{simditor-editor value=model name='html'  update=(action (mut model.html)) editor=(mut editor)}}</pre>
     </code>
 </div>
-{{simditor-editor value=(get model 'three') name='html' update=(action (mut model.three.html)) editor=(mut editor)}}
+{{simditor-editor value=(get model 'three') name='html' update=(action (mut model.three.html)) editor=(mut editor_three)}}

@@ -45,8 +45,8 @@ export default Ember.Component.extend({
         }
 
         let editor = new Simditor(options);
-        if(this.value){
-            let content = get(this.value, this.get('name'))
+        if(get(this, 'value')){
+            let content = get(this.get('value'), this.get('name'))
             editor.setValue(content);
         }
         this.set('_editor', editor);
