@@ -2,7 +2,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/simditor-editor';
 
-const {get} = Ember;
+const { get, run, merge, getProperties } = Ember;
 
 export default Ember.Component.extend({
     layout,
@@ -14,51 +14,62 @@ export default Ember.Component.extend({
     toolbarHidden: false,
     pasteImage: false,
     cleanPaste: false,
+    params: {},
     defaultImage: 'assets/passed.png',
     placeholder: 'Type something here',
     locale: 'en-US',
     _editor: null,
     name: 'content',
+
     didReceiveAttrs(){
-        if(this.get('_editor') && this.attrs.value.value){
-            if(this.get('_editor').getValue() != get(this.attrs.value.value, this.get('name'))){
-                this.get('_editor').setValue(get(this.attrs.value.value, this.get('name')));
-            }
+      let editor = this.get('_editor');
+      let value = this.attrs.value.value;
+      let propName = this.get('name');
+      if(editor && value){
+        if(editor.getValue() != get(value, propName)){
+          editor.setValue(get(value, propName));
         }
+      }
     },
+
     didInsertElement(){
-        let self = this;
         Simditor.locale = this.get('locale');
-        let options = {
-            textarea: self.$('textarea'),
-            upload: self.upload,
-            tabIndent: self.tabIndent,
-            toolbar: self.toolbar,
-            toolbarFloat: self.toolbarFloat,
-            toolbarFloatOffset: self.toolbarFloatOffset,
-            toolbarHidden: self.toolbarHidden,
-            pasteImage: self.pasteImage,
-            cleanPaste: self.cleanPaste,
-            defaultImage: self.defaultImage,
-            placeholder: self.placeholder,
-            params: self.params || {}
-        }
+        let options = merge(
+          {
+            textarea: this.$('textarea'),
+          },
+          getProperties(
+            this,
+            'upload',
+            'tabIndent',
+            'toolbar',
+            'toolbarFloat',
+            'toolbarFloatOffset',
+            'toolbarHidden',
+            'pasteImage',
+            'cleanPaste',
+            'defaultImage',
+            'placeholder'
+          )
+        );
 
         let editor = new Simditor(options);
-        if(get(this, 'value')){
-            let content = get(this.get('value'), this.get('name'))
-            editor.setValue(content);
+        let value = get(this, 'value');
+        if(value){
+          let content = get(value, this.get('name'))
+          editor.setValue(content);
         }
+
         this.set('_editor', editor);
 
         editor.on('valuechanged', (e)=>{
-            if(typeof this.attrs.onValuechanged == 'function'){
-                this.attrs.onValuechanged(e, editor);
-            }
+          if(typeof this.attrs.onValuechanged == 'function'){
+            this.attrs.onValuechanged(e, editor);
+          }
 
-            if(typeof this.attrs.update == 'function'){
-                this.attrs.update(editor.getValue());
-            }
+          if(typeof this.attrs.update == 'function'){
+            this.attrs.update(editor.getValue());
+          }
         });
 
         editor.on('selectionchanged', (e)=>{
@@ -103,14 +114,16 @@ export default Ember.Component.extend({
             }
         });
 
-        Ember.run.scheduleOnce('afterRender', this, function(editor){
+        run.scheduleOnce('afterRender', this, function(editor){
             if(this.attrs.editor){
                 this.attrs.editor.update(editor);
             }
         }, editor);
     },
+
     willDestroy(){
-        this._super(...arguments);
-        this && this.get('editor') && this.get('editor').destroy();
+      let editor = this.get('editor');
+      editor && editor.destroy();
+      this._super(...arguments);
     }
 });
