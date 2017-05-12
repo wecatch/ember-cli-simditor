@@ -26,7 +26,7 @@ export default Ember.Component.extend({
       let value = this.attrs.value.value;
       let propName = this.get('name');
       if(editor && value){
-        if(editor.getValue() != get(value, propName)){
+        if(editor.getValue() !== get(value, propName)){
           editor.setValue(get(value, propName));
         }
       }
@@ -56,60 +56,60 @@ export default Ember.Component.extend({
         let editor = new Simditor(options);
         let value = get(this, 'value');
         if(value){
-          let content = get(value, this.get('name'))
+          let content = get(value, this.get('name'));
           editor.setValue(content);
         }
 
         this.set('_editor', editor);
 
         editor.on('valuechanged', (e)=>{
-          if(typeof this.attrs.onValuechanged == 'function'){
+          if(typeof this.attrs.onValuechanged === 'function'){
             this.attrs.onValuechanged(e, editor);
           }
 
-          if(typeof this.attrs.update == 'function'){
+          if(typeof this.attrs.update === 'function'){
             this.attrs.update(editor.getValue());
           }
         });
 
         editor.on('selectionchanged', (e)=>{
-            if(typeof this.attrs.onSelectionchanged == 'function'){
+            if(typeof this.attrs.onSelectionchanged === 'function'){
                 this.attrs.onSelectionchanged(e, editor);
             }
         });
 
         editor.on('decorate', (e, el)=>{
-            if(typeof this.attrs.onDecorate == 'function'){
+            if(typeof this.attrs.onDecorate === 'function'){
                 this.attrs.onDecorate(e, el, editor);
             }
         });
 
         editor.on('undecorate', (e, el)=>{
-            if(typeof this.attrs.onUndecorate == 'function'){
+            if(typeof this.attrs.onUndecorate === 'function'){
                 this.attrs.onUndecorate(e, el, editor);
             }
         });
 
         editor.on('pasting', (e, pasteContent)=>{
-            if(typeof this.attrs.onPasting == 'function'){
+            if(typeof this.attrs.onPasting === 'function'){
                 return this.attrs.onPasting(e, pasteContent, editor);
             }
         });
 
         editor.on('focus', (e)=>{
-            if(typeof this.attrs.onFocus == 'function'){
+            if(typeof this.attrs.onFocus === 'function'){
                 this.attrs.onFocus(e, editor);
             }
         });
 
         editor.on('blur', (e)=>{
-            if(typeof this.attrs.onBlur == 'function'){
+            if(typeof this.attrs.onBlur === 'function'){
                 this.attrs.onBlur(e, editor);
             }
         });
 
         editor.on('destroy', (e)=>{
-            if(typeof this.attrs.onDestroy == 'function'){
+            if(typeof this.attrs.onDestroy === 'function'){
                 this.attrs.onDestroy(e, editor);
             }
         });
@@ -123,7 +123,9 @@ export default Ember.Component.extend({
 
     willDestroy(){
       let editor = this.get('editor');
-      editor && editor.destroy();
+      if(editor){
+        editor.destroy();
+      }
       this._super(...arguments);
     }
 });
