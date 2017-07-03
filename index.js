@@ -1,8 +1,6 @@
 /* eslint-env node */
 'use strict';
 
-const fastbootTransform = require('fastboot-transform');
-
 module.exports = {
   name: 'ember-cli-simditor',
   options: {
@@ -11,30 +9,21 @@ module.exports = {
         vendor: {
           include: [
             'lib/hotkeys.js'
-          ],
-          processTree(input) {
-            return fastbootTransform(input);
-          }
+          ]
         }
       },
       'simple-module': {
         vendor: {
           include: [
             'lib/module.js'
-          ],
-          processTree(input) {
-            return fastbootTransform(input);
-          }
+          ]
         }
       },
       'simple-uploader': {
         vendor: {
           include: [
             'lib/uploader.js'
-          ],
-          processTree(input) {
-            return fastbootTransform(input);
-          }
+          ]
         }
       },
       simditor: {
@@ -42,10 +31,7 @@ module.exports = {
           include: [
             'lib/simditor.js',
             'styles/simditor.css'
-          ],
-          processTree(input) {
-            return fastbootTransform(input);
-          }
+          ]
         }
       }
     }
