@@ -4,9 +4,13 @@ node_js:
   - "6"
 
 sudo: false
+dist: trusty
 
 cache:
   yarn: true
+
+addons:
+  chrome: stable
 
 env:
   # we recommend testing LTS's and latest stable release (bonus points to beta/canary)
