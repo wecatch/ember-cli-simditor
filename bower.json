@@ -1,6 +1,5 @@
 {
   "name": "ember-cli-simditor",
   "dependencies": {
-    "simditor": "~2.3.6"
   }
 }

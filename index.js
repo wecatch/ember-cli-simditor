@@ -1,17 +1,63 @@
-/* jshint node: true */
+/* eslint-env node */
 'use strict';
+
+const fastbootTransform = require('fastboot-transform');
 
 module.exports = {
   name: 'ember-cli-simditor',
-  included: function(app){
-    if (typeof app.import !== 'function' && app.app) {
-      app = app.app;
+  options: {
+    nodeAssets: {
+      'simple-hotkeys': {
+        vendor: {
+          include: [
+            'lib/hotkeys.js'
+          ],
+          processTree(input) {
+            return fastbootTransform(input);
+          }
+        }
+      },
+      'simple-module': {
+        vendor: {
+          include: [
+            'lib/module.js'
+          ],
+          processTree(input) {
+            return fastbootTransform(input);
+          }
+        }
+      },
+      'simple-uploader': {
+        vendor: {
+          include: [
+            'lib/uploader.js'
+          ],
+          processTree(input) {
+            return fastbootTransform(input);
+          }
+        }
+      },
+      simditor: {
+        vendor: {
+          include: [
+            'lib/simditor.js',
+            'styles/simditor.css'
+          ],
+          processTree(input) {
+            return fastbootTransform(input);
+          }
+        }
+      }
     }
-    this._super.included(app);
-    app.import(app.bowerDirectory+'/simple-module/lib/module.js');
-    app.import(app.bowerDirectory+'/simple-hotkeys/lib/hotkeys.js');
-    app.import(app.bowerDirectory+'/simple-uploader/lib/uploader.js');
-    app.import(app.bowerDirectory+'/simditor/lib/simditor.js');
-    app.import(app.bowerDirectory+'/simditor/styles/simditor.css');
+  },
+
+  included: function() {
+    this._super.included.apply(this, arguments);
+
+    this.import('vendor/simple-module/lib/module.js');
+    this.import('vendor/simple-hotkeys/lib/hotkeys.js');
+    this.import('vendor/simple-uploader/lib/uploader.js');
+    this.import('vendor/simditor/lib/simditor.js');
+    this.import('vendor/simditor/styles/simditor.css');
   }
 };
