@@ -1,6 +1,8 @@
 /* eslint-env node */
 'use strict';
 
+const map = require('broccoli-stew').map;
+
 module.exports = {
   name: 'ember-cli-simditor',
   options: {
@@ -9,21 +11,30 @@ module.exports = {
         vendor: {
           include: [
             'lib/hotkeys.js'
-          ]
+          ],
+          processTree(tree) {
+            return map(tree, '**/*.js', (content) => `if (typeof FastBoot === 'undefined') {\n${content}\n}`);
+          }
         }
       },
       'simple-module': {
         vendor: {
           include: [
             'lib/module.js'
-          ]
+          ],
+          processTree(tree) {
+            return map(tree, '**/*.js', (content) => `if (typeof FastBoot === 'undefined') {\n${content}\n}`);
+          }
         }
       },
       'simple-uploader': {
         vendor: {
           include: [
             'lib/uploader.js'
-          ]
+          ],
+          processTree(tree) {
+            return map(tree, '**/*.js', (content) => `if (typeof FastBoot === 'undefined') {\n${content}\n}`);
+          }
         }
       },
       simditor: {
@@ -31,7 +42,10 @@ module.exports = {
           include: [
             'lib/simditor.js',
             'styles/simditor.css'
-          ]
+          ],
+          processTree(tree) {
+            return map(tree, '**/*.js', (content) => `if (typeof FastBoot === 'undefined') {\n${content}\n}`);
+          }
         }
       }
     }
