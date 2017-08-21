@@ -30,7 +30,7 @@
 </div>
 <br>
 <h1>Editor</h1>
-{{simditor-editor value=(get model 'one') update=(action (mut model.one.content)) editor=(mut editor) onValuechanged=(action "valuechanged")}}
+{{simditor-editor value=(get model 'one') update=(action (mut model.one.content)) editor=(mut editor) onValuechanged=(action "valuechanged") toolbar=toolbar }}
 <div>
     <h1>Html content</h1>
     {{model.one.content}}

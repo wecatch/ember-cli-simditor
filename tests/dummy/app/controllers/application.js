@@ -25,5 +25,25 @@ export default Ember.Controller.extend({
     valuechanged(e, editor){
       Logger.log('valuechanged event: ' + editor.getValue());
     }
-  }
+  },
+  toolbar: [
+    'title',
+    'bold',
+    'italic',
+    'underline',
+    'strikethrough',
+    'fontScale',
+    'color',
+    'ol',             // ordered list
+    'ul',            // unordered list
+    'blockquote',
+    'code',           // code block
+    'table',
+    'link',
+    'image',
+    'hr',             // horizontal ruler
+    'indent',
+    'outdent',
+    'alignment',
+  ]
 });
