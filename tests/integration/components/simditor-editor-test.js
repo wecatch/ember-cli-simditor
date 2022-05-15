@@ -10,17 +10,14 @@ module('Integration | Component | simditor-editor', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<SimditorEditor />`);
+    this.set('model', {'content': 'hello emberjs'});
+    this.set('editor', null);
+    this.set('updateEditor', (editor)=>{
+      this.set('editor', editor);
+    });
+    await render(hbs`<SimditorEditor @value={{this.model}} @editor={{this.updateEditor}} />`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <SimditorEditor>
-        template block text
-      </SimditorEditor>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.ok(this.editor != null);
+    assert.equal(this.element.querySelector('.simditor-body').innerHTML.trim(), '<p>hello emberjs</p>');
   });
 });

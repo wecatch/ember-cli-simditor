@@ -14,6 +14,9 @@ module.exports = function (defaults) {
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
 
+  app.import('node_modules/highlight.js/styles/default.css');
+  app.import('node_modules/highlight.js/styles/github.css');
+
   const { maybeEmbroider } = require('@embroider/test-setup');
   return maybeEmbroider(app, {
     skipBabel: [

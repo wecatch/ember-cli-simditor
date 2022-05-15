@@ -39,7 +39,7 @@ export default class SimditorEditorComponent extends Component {
 
   @action
   focus(element) {
-    Simditor.locale = this.locale;
+    Simditor.locale = this.args.locale ? this.args.locale : this.locale;
 
     let options = {
       upload: this.args.upload ? this.args.upload : this.upload,
@@ -134,8 +134,8 @@ export default class SimditorEditorComponent extends Component {
     this.args.editor(editor);
   }
 
-  willDestroy() {
-    super.willDestroy(...arguments);
+  @action
+  willDestroyEditor() {
     if (this._editor) {
       this._editor.destroy();
     }
