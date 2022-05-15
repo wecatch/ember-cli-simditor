@@ -1,6 +1,6 @@
 # Ember-cli-simditor
 
-[![Build Status](https://github.com/wecatch/ember-cli-simditor/actions/workflows/ci.yml/badge.svg)
+[![Build Status](https://github.com/wecatch/ember-cli-simditor/actions/workflows/ci.yml/badge.svg)](https://github.com/wecatch/ember-cli-simditor/actions)
 [![Downloads](https://img.shields.io/npm/dt/ember-cli-simditor.svg)](https://www.npmjs.com/package/ember-cli-simditor)
 [![Version](https://img.shields.io/npm/v/ember-cli-simditor.svg)](https://www.npmjs.com/package/ember-cli-simditor)
 
