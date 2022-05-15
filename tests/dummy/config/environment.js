@@ -44,6 +44,7 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
+    ENV.baseURL = '/ember-cli-simditor';
     // here you can enable a production-specific feature
   }
 
