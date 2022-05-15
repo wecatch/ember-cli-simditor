@@ -13,7 +13,7 @@
 <div class="code">
     <h1>How to use</h1>
     <code>
-        <pre>\{{simditor-editor value=model update=(action (mut model.content)) editor=(mut editor) onValuechanged=(action "valuechanged")}}</pre>
+        <pre>{{render-html "<SimditorEditor @value={{get this.model 'one'}} @update={{fn (mut this.model.one.content)}} @editor={{fn (mut this.editor)}} @toolbar={{this.toolbar}} @onValuechanged={{this.valuechanged}} ></SimditorEditor>"}}</pre>
     </code>
     <p>
         <strong>Model object must have one property called content for component to render.</strong>

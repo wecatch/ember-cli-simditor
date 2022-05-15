@@ -1,13 +1,33 @@
 {
   "name": "ember-cli-simditor",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "1.0.0",
+  "description": "Ember component wrapper for simditor.",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "editor",
+    "simditor"
   ],
   "repository": "",
   "license": "MIT",
-  "author": "",
+  "author": {
+    "name": "wecatch",
+    "url": "http://wecatch.me"
+  },
+  "contributors": [
+    {
+      "name": "zhyq0826",
+      "email": "zhyq0826@email.com",
+      "url": "https://github.com/zhyq0826",
+      "blog": "https://sanyuesha.com"
+    },
+    {
+      "name": "jerryshew",
+      "email": "jerryshew@email.com",
+      "url": "https://github.com/jerryshew",
+      "blog": "http://braavos.me"
+    }
+  ],
+  "homepage": "https://wecatch.github.io/ember-cli-simditor/",
   "directories": {
     "doc": "doc",
     "test": "tests"
