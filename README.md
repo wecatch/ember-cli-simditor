@@ -13,6 +13,7 @@ Ember component wrapper for [simditor](https://github.com/mycolorway/simditor).
 - Upgrade Ember to 3.85
 - Use native class rewrite addon
 - Lock simditor dependence
+- Change ci to github action
 
 ## 0.0.7
 
@@ -73,7 +74,7 @@ English by default
 Chinese
 
 ```
-<SimditorEditor locale='zh-CN'/>
+<SimditorEditor @locale='zh-CN'/>
 ```
 
 ## API

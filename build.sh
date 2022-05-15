@@ -1,3 +1,4 @@
+npm run build
 git branch -D gh-pages
 git push origin --delete gh-pages
 git checkout -b gh-pages
