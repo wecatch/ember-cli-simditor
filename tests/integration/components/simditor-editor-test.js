@@ -1,27 +1,26 @@
-import { moduleForComponent, test } from 'ember-qunit';
-import hbs from 'htmlbars-inline-precompile';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
+import { hbs } from 'ember-cli-htmlbars';
 
-moduleForComponent('simditor-editor', 'Integration | Component | simditor editor', {
-  integration: true
-});
+module('Integration | Component | simditor-editor', function (hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-  var model = {'content': 'hello emberjs'};
-  this.set('model', model);
-  this.render(hbs`{{simditor-editor value=model editor=(mut editor) }}`);
-  assert.notEqual(typeof this.get('editor'), 'undefined');
-  assert.notEqual(this.get('editor'), null);
-  assert.equal(this.$('.simditor-body').html().trim(), '<p>hello emberjs</p>');
-});
+  test('it renders', async function (assert) {
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.set('myAction', function(val) { ... });
 
-test('it custome render', function(assert){
+    await render(hbs`<SimditorEditor />`);
 
-  var model = {'html': 'hello emberjs'};
-  this.set('model', model);
-  this.render(hbs`{{simditor-editor value=model name='html' editor=(mut editor) }}`);
-  assert.notEqual(typeof this.get('editor'), 'undefined');
-  assert.notEqual(this.get('editor'), null);
-  assert.equal(this.$('.simditor-body').html().trim(), '<p>hello emberjs</p>');
+    assert.dom(this.element).hasText('');
+
+    // Template block usage:
+    await render(hbs`
+      <SimditorEditor>
+        template block text
+      </SimditorEditor>
+    `);
+
+    assert.dom(this.element).hasText('template block text');
+  });
 });

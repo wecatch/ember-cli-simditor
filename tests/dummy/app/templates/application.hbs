@@ -21,39 +21,17 @@
 </div>
 <div>
     <h1>Editor methods</h1>
-    <button {{action "setValue"}} >setValue</button>
-    <button {{action "getValue"}} >getValue</button>
-    <button {{action "sync"}}>sync</button>
-    <button {{action "focus"}} >focus</button>
-    <button {{action "blur"}}>blur</button>
-    <button {{action "hidePopover"}} >hidePopover</button>
+    <button type="button" {{on "click" this.setValue }}>setValue</button>
+    <button type="button" {{on "click" this.getValue }}>getValue</button>
+    <button type="button" {{on "click" this.sync }}>sync</button>
+    <button type="button" {{on "click" this.focus }}>focus</button>
+    <button type="button" {{on "click" this.blur }}>blur</button>
+    <button type="button" {{on "click" this.hidePopover }}>hidePopover</button>
 </div>
 <br>
 <h1>Editor</h1>
-{{simditor-editor value=(get model 'one') update=(action (mut model.one.content)) editor=(mut editor) onValuechanged=(action "valuechanged") toolbar=toolbar }}
+<SimditorEditor @value={{get this.model 'one'}} @update={{fn (mut this.model.one.content)}} @editor={{fn (mut this.editor)}} @toolbar={{this.toolbar}} @onValuechanged={{this.valuechanged}} ></SimditorEditor>
 <div>
     <h1>Html content</h1>
-    {{model.one.content}}
+    {{this.model.one.content}}
 </div>
-
-<h1>
-    Locale
-</h1>
-<div class="code">
-    <p>locale only support <em>en-US</em>(English) and <em>zh-CN</em>(Chinese)</p>
-    <code>
-        <pre>\{{simditor-editor value=model locale='zh-CN' update=(action (mut model.content)) editor=(mut editor)}}</pre>
-    </code>
-</div>
-{{simditor-editor value=(get model 'two') locale='zh-CN' update=(action (mut model.two.content)) editor=(mut editor_two)}}
-
-<h1>
-    Custome content property name
-</h1>
-<div class="code">
-    <p>You can change model content propery name by passing name argument</p>
-    <code>
-        <pre>\{{simditor-editor value=model name='html'  update=(action (mut model.html)) editor=(mut editor)}}</pre>
-    </code>
-</div>
-{{simditor-editor value=(get model 'three') name='html' update=(action (mut model.three.html)) editor=(mut editor_three)}}
