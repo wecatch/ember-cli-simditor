@@ -1,10 +1,10 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
-    model(params){
-        return {
-            '1': {'content': 'hello item 1'},
-            '2': {'content': 'hello item 2'}
-        }[params.id];
-    }
-});
+export default class ItemRoute extends Route {
+  model(params) {
+    return {
+      1: { content: 'hello item 1' },
+      2: { content: 'hello item 2' },
+    }[params.id];
+  }
+}

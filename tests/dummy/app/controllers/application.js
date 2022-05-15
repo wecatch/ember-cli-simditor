@@ -1,32 +1,43 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { action, get } from '@ember/object';
 
-const { Logger } = Ember;
+export default class ApplicationController extends Controller {
+  constructor() {
+    super(...arguments);
+    this.editor = null;
+  }
 
-export default Ember.Controller.extend({
-  actions: {
-    setValue(){
-      this.get('editor').setValue('<h1>hello simditor</h1>');
-    },
-    getValue(){
-      window.alert(this.get('editor').getValue());
-    },
-    sync(){
-      window.alert(this.get('editor').sync());
-    },
-    focus(){
-      this.get('editor').focus();
-    },
-    blur(){
-      this.get('editor').blur();
-    },
-    hidePopover(){
-      this.get('editor').hidePopover();
-    },
-    valuechanged(e, editor){
-      Logger.log('valuechanged event: ' + editor.getValue());
-    }
-  },
-  toolbar: [
+  @action
+  setValue() {
+    this.editor.setValue('<h1>hello simditor</h1>');
+  }
+
+  @action
+  getValue() {
+    window.alert(this.editor.getValue());
+  }
+  @action
+  sync() {
+    window.alert(this.editor.sync());
+  }
+  @action
+  focus() {
+    this.editor.focus();
+  }
+  @action
+  blur() {
+    this.editor.blur();
+  }
+  @action
+  hidePopover() {
+    this.editor.hidePopover();
+  }
+  @action
+  valuechanged(e, editor) {
+    console.log('valuechanged event: ' + editor.getValue());
+  }
+
+  toolbar = [
     'title',
     'bold',
     'italic',
@@ -34,16 +45,16 @@ export default Ember.Controller.extend({
     'strikethrough',
     'fontScale',
     'color',
-    'ol',             // ordered list
-    'ul',            // unordered list
+    'ol', // ordered list
+    'ul', // unordered list
     'blockquote',
-    'code',           // code block
+    'code', // code block
     'table',
     'link',
     'image',
-    'hr',             // horizontal ruler
+    'hr', // horizontal ruler
     'indent',
     'outdent',
     'alignment',
-  ]
-});
+  ];
+}
