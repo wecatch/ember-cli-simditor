@@ -51,12 +51,12 @@
     "simditor": "^2.3.28",
     "simple-hotkeys": "1.0.3",
     "simple-module": "2.0.6",
-    "simple-uploader": "2.0.8"
+    "simple-uploader": "2.0.8",
+    "@ember/render-modifiers": "^2.0.4"
   },
   "devDependencies": {
     "@ember/jquery": "^2.0.0",
     "@ember/optional-features": "^2.0.0",
-    "@ember/render-modifiers": "^2.0.4",
     "@ember/test-helpers": "^2.6.0",
     "@embroider/test-setup": "^0.48.1",
     "@glimmer/component": "^1.0.4",
